@@ -1,0 +1,25 @@
+Okay so this is pretty simple to use!
+
+HOW TO RUN MONGODB:
+1) go to mongo db folder and traverse to the bin folder(typically ...../Prgoram Files/MongoDB/Server/3.0/Bin)
+2) This step can be done two ways, the first way may not work the first time:
+	First way:
+	1) Double click on Mongod.exe
+	2) Double click on Mongo.exe
+	NOTE: this will open up two console menus which should be open for the whole time that my program is running. If the consoles close 
+	automatically after you run them then try the second way of staring mongo db
+
+	Second way:
+	1) In the folder, shift+right-click and select "Open Command window here" and then type "mongod.exe" and press enter. Do not exit the console window!!!
+	2) In the folder, shift+right-click and select "Open Command window here" and then type "mongo.exe" and press enter. Do not exit any of the console windows!!!
+
+3) After step two procede to finding the executable of the project I have sent you. this will be located in he debug folder contained with in the bin file.
+4) Run the Executable "Homework6.exe" (sorry for the name, I edited another assignment)
+5) A message and funny screen should appear saying that data has been added to the database.
+6) You can now exit the program and continue with life as normal.
+
+
+Notes: 
+1) Please refer to the information I sent with the design of the database.
+2) Feel free to look at this projects code if you can, you can use Visual Studio to do this.
+3) Please let me know if you wish to know about anything else.

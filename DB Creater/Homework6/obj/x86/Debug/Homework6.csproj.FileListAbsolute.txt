@@ -1,0 +1,58 @@
+E:\University\INF 354\Homework 6\Homework6\Homework6\obj\x86\Debug\Homework6.csprojResolveAssemblyReference.cache
+E:\University\INF 354\Homework 6\Homework6\Homework6\obj\x86\Debug\Homework6.Form1.resources
+E:\University\INF 354\Homework 6\Homework6\Homework6\obj\x86\Debug\Homework6.Properties.Resources.resources
+E:\University\INF 354\Homework 6\Homework6\Homework6\obj\x86\Debug\Homework6.csproj.GenerateResource.Cache
+E:\University\INF 354\Homework 6\Homework6\Homework6\bin\Debug\Homework6.exe
+E:\University\INF 354\Homework 6\Homework6\Homework6\bin\Debug\Homework6.pdb
+E:\University\INF 354\Homework 6\Homework6\Homework6\bin\Debug\MongoDB.Bson.dll
+E:\University\INF 354\Homework 6\Homework6\Homework6\bin\Debug\MongoDB.Driver.dll
+E:\University\INF 354\Homework 6\Homework6\Homework6\bin\Debug\MongoDB.Bson.pdb
+E:\University\INF 354\Homework 6\Homework6\Homework6\bin\Debug\MongoDB.Bson.xml
+E:\University\INF 354\Homework 6\Homework6\Homework6\bin\Debug\MongoDB.Driver.pdb
+E:\University\INF 354\Homework 6\Homework6\Homework6\bin\Debug\MongoDB.Driver.xml
+E:\University\INF 354\Homework 6\Homework6\Homework6\obj\x86\Debug\Homework6.exe
+E:\University\INF 354\Homework 6\Homework6\Homework6\obj\x86\Debug\Homework6.pdb
+G:\University\INF 354\Homework 6\Homework6\Homework6\obj\x86\Debug\Homework6.exe
+G:\University\INF 354\Homework 6\Homework6\Homework6\obj\x86\Debug\Homework6.pdb
+G:\University\INF 354\Homework 6\Homework6\Homework6\bin\Debug\Homework6.exe
+G:\University\INF 354\Homework 6\Homework6\Homework6\bin\Debug\Homework6.pdb
+G:\University\INF 354\Homework 6\Homework6\Homework6\bin\Debug\MongoDB.Bson.dll
+G:\University\INF 354\Homework 6\Homework6\Homework6\bin\Debug\MongoDB.Driver.dll
+G:\University\INF 354\Homework 6\Homework6\Homework6\bin\Debug\MongoDB.Bson.pdb
+G:\University\INF 354\Homework 6\Homework6\Homework6\bin\Debug\MongoDB.Bson.xml
+G:\University\INF 354\Homework 6\Homework6\Homework6\bin\Debug\MongoDB.Driver.pdb
+G:\University\INF 354\Homework 6\Homework6\Homework6\bin\Debug\MongoDB.Driver.xml
+G:\University\INF 354\Homework 6\Homework6\Homework6\obj\x86\Debug\Homework6.csprojResolveAssemblyReference.cache
+G:\University\INF 354\Homework 6\Homework6\Homework6\obj\x86\Debug\Homework6.Form1.resources
+G:\University\INF 354\Homework 6\Homework6\Homework6\obj\x86\Debug\Homework6.Properties.Resources.resources
+G:\University\INF 354\Homework 6\Homework6\Homework6\obj\x86\Debug\Homework6.csproj.GenerateResource.Cache
+C:\Users\Duran\Desktop\Homework 6\Homework6\Homework6\obj\x86\Debug\Homework6.exe
+C:\Users\Duran\Desktop\Homework 6\Homework6\Homework6\obj\x86\Debug\Homework6.pdb
+C:\Users\Duran\Desktop\Homework 6\Homework6\Homework6\obj\x86\Debug\Homework6.csprojResolveAssemblyReference.cache
+C:\Users\Duran\Desktop\Homework 6\Homework6\Homework6\obj\x86\Debug\Homework6.Form1.resources
+C:\Users\Duran\Desktop\Homework 6\Homework6\Homework6\obj\x86\Debug\Homework6.Properties.Resources.resources
+C:\Users\Duran\Desktop\Homework 6\Homework6\Homework6\obj\x86\Debug\Homework6.csproj.GenerateResource.Cache
+C:\Users\Duran\Desktop\Homework 6\Homework6\Homework6\bin\Debug\Homework6.exe
+C:\Users\Duran\Desktop\Homework 6\Homework6\Homework6\bin\Debug\Homework6.pdb
+C:\Users\Duran\Desktop\Homework 6\Homework6\Homework6\bin\Debug\MongoDB.Bson.dll
+C:\Users\Duran\Desktop\Homework 6\Homework6\Homework6\bin\Debug\MongoDB.Driver.dll
+C:\Users\Duran\Desktop\Homework 6\Homework6\Homework6\bin\Debug\MongoDB.Bson.pdb
+C:\Users\Duran\Desktop\Homework 6\Homework6\Homework6\bin\Debug\MongoDB.Bson.xml
+C:\Users\Duran\Desktop\Homework 6\Homework6\Homework6\bin\Debug\MongoDB.Driver.pdb
+C:\Users\Duran\Desktop\Homework 6\Homework6\Homework6\bin\Debug\MongoDB.Driver.xml
+C:\Users\POLSKA\Downloads\COS_301-2015-03-18\COS 301\DB Creater\Homework6\Homework6\obj\x86\Debug\Homework6.exe
+C:\Users\POLSKA\Downloads\COS_301-2015-03-18\COS 301\DB Creater\Homework6\Homework6\obj\x86\Debug\Homework6.pdb
+C:\Users\POLSKA\Downloads\COS_301-2015-03-18\COS 301\DB Creater\Homework6\Homework6\bin\Debug\Homework6.exe
+C:\Users\POLSKA\Downloads\COS_301-2015-03-18\COS 301\DB Creater\Homework6\Homework6\bin\Debug\Homework6.pdb
+C:\Users\POLSKA\Downloads\COS_301-2015-03-18\COS 301\DB Creater\Homework6\Homework6\bin\Debug\MongoDB.Bson.dll
+C:\Users\POLSKA\Downloads\COS_301-2015-03-18\COS 301\DB Creater\Homework6\Homework6\bin\Debug\MongoDB.Driver.dll
+C:\Users\POLSKA\Downloads\COS_301-2015-03-18\COS 301\DB Creater\Homework6\Homework6\bin\Debug\MongoDB.Bson.pdb
+C:\Users\POLSKA\Downloads\COS_301-2015-03-18\COS 301\DB Creater\Homework6\Homework6\bin\Debug\MongoDB.Bson.xml
+C:\Users\POLSKA\Downloads\COS_301-2015-03-18\COS 301\DB Creater\Homework6\Homework6\bin\Debug\MongoDB.Driver.pdb
+C:\Users\POLSKA\Downloads\COS_301-2015-03-18\COS 301\DB Creater\Homework6\Homework6\bin\Debug\MongoDB.Driver.xml
+C:\Users\POLSKA\Downloads\COS_301-2015-03-18\COS 301\DB Creater\Homework6\Homework6\obj\x86\Debug\Homework6.csprojResolveAssemblyReference.cache
+C:\Users\POLSKA\Downloads\COS_301-2015-03-18\COS 301\DB Creater\Homework6\Homework6\obj\x86\Debug\Homework6.Form1.resources
+C:\Users\POLSKA\Downloads\COS_301-2015-03-18\COS 301\DB Creater\Homework6\Homework6\obj\x86\Debug\Homework6.Properties.Resources.resources
+C:\Users\POLSKA\Downloads\COS_301-2015-03-18\COS 301\DB Creater\Homework6\Homework6\obj\x86\Debug\Homework6.csproj.GenerateResource.Cache
+C:\Users\Duran\Desktop\Homework6\Homework6\obj\x86\Debug\Homework6.exe
+C:\Users\Duran\Desktop\Homework6\Homework6\obj\x86\Debug\Homework6.pdb
