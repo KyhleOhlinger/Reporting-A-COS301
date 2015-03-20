@@ -1,0 +1,4 @@
+Paste js file into nodejs folder
+run on console
+enter browser "localhost:5555"
+MAGIC!!!!
