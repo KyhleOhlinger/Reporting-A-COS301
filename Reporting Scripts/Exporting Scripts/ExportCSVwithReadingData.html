@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" src="jquery.js" ></script>
+<script type="text/javascript" src="test.js" ></script>
+<script type="text/javascript" >
+
+ $(document).ready(function()  
+ {
+
+var employees = [
+    {"firstName":"John", "lastName":"Doe"},
+    {"firstName":"Anna", "lastName":"Smith"},
+    {"firstName":"Peter","lastName": "Jones"}
+];
+  	$.makeTable = function (mydata) {
+	    var table = $('<table border=1>');
+	    var tblHeader = "<tr>";
+	    for (var k in mydata[0]) tblHeader += "<th>" + k + "</th>";
+	    tblHeader += "</tr>";
+	    $(tblHeader).appendTo(table);
+	    $.each(mydata, function (index, value) {
+		var TableRow = "<tr>";
+		$.each(value, function (key, val) {
+		    TableRow += "<td>" + val + "</td>";
+		});
+		TableRow += "</tr>";
+		$(table).append(TableRow);
+	    });
+	    return ($(table));
+	};
+
+var mydata = eval(employees);
+var table = $.makeTable(mydata);
+$(table).appendTo("#TableCont");
+
+
+$("button").click( function() 
+	{
+		  $('table').each(function() 
+		  {
+			    var $table = $(this);
+			 var data = $table.table2CSV({delivery:'value'});
+			$('<a></a>')
+			    .attr('id','downloadFile')
+			    .attr('href','data:text/csv;charset=utf8,' + encodeURIComponent(data))
+			    .attr('download','report.csv')
+			    .appendTo('body');
+
+			$('#downloadFile').ready(function() 
+			{
+			    $('#downloadFile').get(0).click();
+			});
+		});
+	});
+	
+
+
+})
+
+
+</script>
+<body>
+	<div id="TableCont">
+	  <h3>This is a where the table data goes:</h3>
+	</div>
+
+	<button id="some_id1">print CSV</button>
+</body>
+</html>

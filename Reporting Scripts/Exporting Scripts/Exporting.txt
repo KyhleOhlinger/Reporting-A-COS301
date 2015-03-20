@@ -1,2 +1,11 @@
 This section  is for scripts regarding the exportation of reports to PDF or CSV as
 the moment.
+
+Updates:
+1) Seb
+Added jquery.js and test.js to do export to csv. Added ExportCSV.html to test
+the exporting from a general HTML table
+
+2) Kyhle
+The ExportCSVwithReadingData.html file has jquery inside it to fetch 
+the JSON objects and convert to file using Sebs' export functions.
