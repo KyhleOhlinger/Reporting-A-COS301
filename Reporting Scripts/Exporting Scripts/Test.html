@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" src="jquery.js" ></script>
+<script type="text/javascript" src="test.js" ></script>
+<script type="text/javascript" >
+$(document).ready(function() {
+ 
+  $('table').each(function() {
+    var $table = $(this);
+ var data = $table.table2CSV({delivery:'value'});
+$('<a></a>')
+    .attr('id','downloadFile')
+    .attr('href','data:text/csv;charset=utf8,' + encodeURIComponent(data))
+    .attr('download','report.csv')
+    .appendTo('body');
+
+$('#downloadFile').ready(function() {
+    $('#downloadFile').get(0).click();
+});
+  });
+  
+})
+
+</script>
+<body>
+
+<table id="table" border="1"  style="background-color:#FFFFCC" width="0%" cellpadding="3" cellspacing="3">
+
+    <tr>
+
+        <th>Name</th>
+
+        <th>Things Sucked</th>
+
+        <th>Skill</th>
+
+    </tr>
+
+    <tr>
+
+        <td>Timmeh</td>
+
+        <td>Dick</td>
+
+        <td>73%</td>
+
+    </tr>
+
+    <tr>
+
+        <td>Andrew</td>
+
+        <td>Dick</td>
+
+        <td>32%</td>
+
+    </tr>
+
+    <tr>
+
+        <td>Byron</td>
+
+        <td>Dick</td>
+
+        <td>65%</td>
+
+    </tr>
+
+    <tr>
+
+        <td>JP</td>
+
+        <td>Dick</td>
+
+        <td>86%</td>
+
+    </tr>
+
+	    <tr>
+
+        <td>Kyhle</td>
+
+        <td>Dick</td>
+
+        <td>99%</td>
+
+    </tr>
+</table>
+
+</body>
+</html>
