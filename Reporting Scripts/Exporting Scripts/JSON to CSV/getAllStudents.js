@@ -37,7 +37,7 @@ function (request, response) {
 
 			},
 			{
-collection: 'Students'
+				collection: 'Students'
 			}
 			);
 
@@ -73,12 +73,12 @@ collection: 'Students'
 				json = json + '{"Student Number": "","Name": "","Surname": "","PhoneNumber": "","Email": "","Mark": ""}]';//Adding in a blank record to cap it off and prevent trailing commas.
 				json = json.replace("[object Object]","");//Some weird bug that keeps adding this to the beginning of the string,so I just remove it.
 				
-				downloadCSV(json);
+				downloadCSVallStudents(json);
 				
 			});
 		}		
 	}
-	function downloadCSV(inJson)//Uses json2csv and save the file on the HDD
+	function downloadCSVallStudents(inJson)//Uses json2csv and save the file on the HDD
 	{
 		var json2csv = require('json2csv');
 		var parsedJSON = JSON.parse(inJson)
