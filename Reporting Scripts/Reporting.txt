@@ -1,2 +1,5 @@
 This section  is for reporting, you can add your own folders inside, 
 so that the various reporting parts are seperated.
+
+Kyhle and Seb have uploaded the newest version of the getAll.js file with 
+importing and a more pluggable exporting module added

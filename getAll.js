@@ -128,7 +128,8 @@ function (request, response) {
 			    });
 				json = json + '{"Name": "","Surname": "","PhoneNumber": "","Email": "","Archived": ""}]';//Adding in a blank record to cap it off and prevent trailing commas.
 				json = json.replace("[object Object]","");//Some weird bug that keeps adding this to the beginning of the string,so I just remove it.
-				downloadCSVallLecturers(json);
+				//downloadCSVallLecturers(json);
+				exportCSV(json,'Student');
 			});
 
 		}
@@ -213,8 +214,8 @@ function (request, response) {
 			    });
 				json = json + '{"DateCreated": "","Name": "","PostContent": "","CreatorID": "","SpaceID": "","StatusID": "","Parent": "","Archived": "","AllAttchements": "","PostType": "","Closed": "","ClosingDate": ""}]';//Adding in a blank record to cap it off and prevent trailing commas.
 				json = json.replace("[object Object]","");//Some weird bug that keeps adding this to the beginning of the string,so I just remove it.
-				//downloadCSVallThreads(json);
-				exportCSV(json,'Threads');
+				downloadCSVallThreads(json);
+				//exportCSV(json,'Threads');
 			    
 			    
 			});
