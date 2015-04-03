@@ -11,6 +11,7 @@ function HTMLWrite(set,action,response)
 }
 
 /**
+ * This is the function asa required by the spec
  * Function to calculate different statistics of the set according to the action parameter.
  * @param set, a set of posts in the form of an array.
  * @param action, the keyword to which action should be performed. Please use the keywords as stated in the Spec PDF
@@ -23,32 +24,78 @@ function getThreadStats(set,action)
     {
         answer = set.length;
     }
-    else if(action == "MemCount")
-    {
+    else if(action == "MemCount") {
         var nameArray = [];
-        for(var i = 0; i < set.length; i++)
-        {
-            if(nameArray.indexOf(set[i].thread_CreaterID) == -1)
-            {
+        for (var i = 0; i < set.length; i++) {
+            if (nameArray.indexOf(set[i].thread_CreaterID) == -1) {
                 nameArray.push(set[i].thread_CreaterID);
             }
         }
 
         answer = nameArray.length;
     }
-	//TODO: Implement the rest
-    else if(action == "MaxDepth")
-    {
+    //implemented assuming all the necessary threads/posts are in the set parameter
+    else if(action == "MaxDepth") {
         var currentMax = -1;
-		//implement the rest
+        var id = 0;
+        var parentId = 0;
+        var tempCount = -1;
+
+        for (var i = 0; i < set.length; i++) {
+            id = set[i].thread_ID;
+            parentId = set[i].thread_Parent;
+            tempCount = 0;
+
+            while (parentId != id) {
+                tempCount++;
+
+                for (var j = 0; j < set.length; j++) {
+                    if (set[j].thread_ID == parentId) {
+                        id = set[j].thread_ID;
+                        parentId = set[j].thread_Parent;
+                        break;
+                    }
+
+                }
+            }
+
+            if (tempCount > currentMax) {
+                currentMax = tempCount;
+            }
 
 
+        }
+        answer = currentMax + 1;
     }
-	//TODO: Implement the rest
+    //implemented assuming all the necessary threads/posts are in the set parameter
     else if(action == "AvgDepth")
     {
         var totDepth = 0;
-        var numOfPosts = 0;
+
+        var tempDepth = 0;
+
+        for (var i = 0; i < set.length; i++) {
+            id = set[i].thread_ID;
+            parentId = set[i].thread_Parent;
+            tempDepth = 1;
+
+            while (parentId != id) {
+                tempDepth++;
+
+                for (var j = 0; j < set.length; j++) {
+                    if (set[j].thread_ID == parentId) {
+                        id = set[j].thread_ID;
+                        parentId = set[j].thread_Parent;
+                        break;
+                    }
+
+                }
+            }
+
+            totDepth += tempDepth;
+
+        }
+        answer = totDepth/set.length;
     }
 
     return answer;
@@ -57,7 +104,7 @@ function getThreadStats(set,action)
 /**
  * This function generates HTML elements which will be used to receive the second parameter for the function getThreadStats from the user. The first parameter of the getThreadStats function will be
  * a JSON object of the set of posts. At this moment it will contain only 3 posts (just for testing purposes). This is done in order to call the getThreadStats function with
- * right parameters (as will be done in the actual system). Note this function is basically just for testing purposes.
+ * right parameters (as will be done in the actual system). Note this function is basically just for testing purposes. A connection is made with mongodb here, so that this code is not in the getThreadStats function.
  * @param request
  * @param response
  */
@@ -81,12 +128,13 @@ function callback(request, response)
 
     //The creation of the second parameter
     var postsSet = [
+
         {
             "_id" : "550d46d84af522f6583d9ef0",
             "thread_ID" : "0",
-            "thread_DateCreated" : "2015-03-21T10:24:24.451Z",
+            "thread_DateCreated" : Date("2015-03-21T10:24:24.451Z"),
             "thread_Name" : "Why wont my TARDIS work",
-            "thread_PostContent" : [],
+            "thread_PostContent" : "i like teh troll",
             "thread_CreaterID" : "u12345678",
             "thread_SpaceID" : "COS 332",
             "thread_StatusID" : [
@@ -99,13 +147,14 @@ function callback(request, response)
             "thread_PostType" : "Question",
             "thread_Closed" : false,
             "thread_DateClosed" : Date(-62135596800000)
+
         },
         {
             "_id" : "550d46d84af522f6583d9ef1",
             "thread_ID" : "1",
-            "thread_DateCreated" : "2010-03-21T10:24:24.451Z",
+            "thread_DateCreated" : Date("2010-03-21T10:24:24.451Z"),
             "thread_Name" : "Oh no Daleks",
-            "thread_PostContent" : [],
+            "thread_PostContent" : "I dont like teh troll",
             "thread_CreaterID" : "u12345678",
             "thread_SpaceID" : "TAR 101",
             "thread_StatusID" : [
@@ -122,9 +171,9 @@ function callback(request, response)
         {
             "_id" : "550d46d84af522f6583d9ef2",
             "thread_ID" : "2",
-            "thread_DateCreated" : "2013-12-21T10:24:24.451Z",
+            "thread_DateCreated" : Date("2013-12-21T10:24:24.451Z"),
             "thread_Name" : "Ummmmmmmm",
-            "thread_PostContent" : [],
+            "thread_PostContent" : "i hope the lecturers are happy",
             "thread_CreaterID" : "u23456789",
             "thread_SpaceID" : "COS 332",
             "thread_StatusID" : [
@@ -132,6 +181,25 @@ function callback(request, response)
                 "1"
             ],
             "thread_Parent" : "1",
+            "thread_Archived" : false,
+            "thread_Attachments" : [],
+            "thread_PostType" : "Question",
+            "thread_Closed" : false,
+            "thread_DateClosed" : Date(-62135596800000)
+        },
+        {
+            "_id" : "550d46d84af522f6583d9ef3",
+            "thread_ID" : "3",
+            "thread_DateCreated" : Date("2013-11-21T10:24:24.451Z"),
+            "thread_Name" : "Write thread title here",
+            "thread_PostContent" : "trolling is fun!!!!!",
+            "thread_CreaterID" : "u45678901",
+            "thread_SpaceID" : "COS 332",
+            "thread_StatusID" : [
+                "0",
+                "1"
+            ],
+            "thread_Parent" : "3",
             "thread_Archived" : false,
             "thread_Attachments" : [],
             "thread_PostType" : "Question",
