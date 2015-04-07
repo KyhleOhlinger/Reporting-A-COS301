@@ -1,0 +1,13 @@
+{
+  "name": "resources",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {},
+  "dependencies": {
+  	"multer":">0.0.0",
+  	"fs" : ">0.0.0"
+  },
+  "devDependencies": {
+    "unit.js": "^1.1.3"
+  }
+}

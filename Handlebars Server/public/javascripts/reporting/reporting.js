@@ -1,35 +1,70 @@
 /**
  * Created by Jaco-Louis on 2015/03/20.
  */
-var mongoose = require('../node_modules/mongoose/mongoose');
-mongoose.connect('mongodb://45.55.154.156:27017/Buzz');
+var db = require('database');//this will have to be removed and will have to use the connection form connect.js
+var mongoose = db.mongoose;//this will have to be removed and will have to use the connection form connect.js
 //var json2csv = require('json2csv');
 var fs = require('fs');
 
 var reporting = {};
 
-reporting.getReportsPage = new function()
-{
-    return  ""+
-        "<div>" +
-        "   <h3>Welcome to reports</h3></br>" +
-        "   <form> " +
-        "       <h4>Please select the type of report you wish to view</h4>" +
-        "       " +
-        "   </form>"+
-        "</div>"
-};
+//schemas
+var ThreadSchema = new mongoose.Schema
+(
+    {
+        thread_DateCreated: Date,
+        thread_Name: String,
+        thread_PostContent: Array,
+        thread_CreatorID: String,
+        thread_SpaceID: String,
+        thread_StatusID: Array,
+        thread_Parent: String,
+        thread_Archived: Date,
+        thread_Attachments: Array,
+        thread_PostType: String,
+        thread_Closed: Boolean,
+        thread_DateClosed: Date
+    },
+    {
+        collection: 'Threads'
+    }
+);
+
+var LecturerSchema = mongoose.Schema({
+    lecturer_Name: String,
+    lecturer_Surname: String,
+    lecturer_Phone: String,
+    lecturer_Email: String,
+    lecturer_Archived: Boolean},{
+    collection:"Lecturers"
+});
+
+var StudentSchema = new mongoose.Schema
+( //Defines a schema for retrieving collections
+    {
+        std_StudentNumber : String,
+        std_Name : String,
+        std_Surname : String,
+        std_PhoneNumber : String,
+        std_Email : String,
+        std_Mark : String
+    },
+    {
+        collection: 'Students'
+    }
+);
+
 
 /* getResponse(response)
  *  takes response given by user and mediates the correct function calls.
  */
-reporting.getResponse = new function(response)
+reporting.getResponse =  function(response)
 {
     if(response == "")
     {
         return;
     }
-    return;
+
 };
 
 //getting the required data
@@ -37,22 +72,8 @@ reporting.getResponse = new function(response)
 /* getStudents
  * gets all relevant student data
  */
-reporting.getStudents = new function()
+reporting.getStudents =  function()
 {
-    var StudentSchema = new mongoose.Schema
-    ( //Defines a schema for retrieving collections
-        {
-            std_StudentNumber : String,
-            std_Name : String,
-            std_Surname : String,
-            std_PhoneNumber : String,
-            std_Email : String,
-            std_Mark : String
-        },
-        {
-            collection: 'Students'
-        }
-    );
     var Students_Collec = mongoose.model('Students',StudentSchema);
     var json = "";
     Students_Collec.find({}, function (err, Students)
@@ -70,17 +91,8 @@ reporting.getStudents = new function()
     })
 };
 
-reporting.getLecturers = new function()
+reporting.getLecturers =  function()
 {
-    var LecturerSchema = mongoose.Schema({
-        lecturer_Name: String,
-        lecturer_Surname: String,
-        lecturer_Phone: String,
-        lecturer_Email: String,
-        lecturer_Archived: Boolean},{
-        collection:"Lecturers"
-    });
-
     var Lecturer = mongoose.model("Lecturers", LecturerSchema);
     var json = "";
     Lecturer.find({}, function (err, Lec) {
@@ -95,29 +107,8 @@ reporting.getLecturers = new function()
     });
 };
 
-reporting.getThreads = new function()
+reporting.getThreads =  function()
 {
-    var ThreadSchema = mongoose.Schema
-    (
-        {
-            thread_DateCreated: Date,
-            thread_Name: String,
-            thread_PostContent: Array,
-            thread_CreatorID: String,
-            thread_SpaceID: String,
-            thread_StatusID: Array,
-            thread_Parent: String,
-            thread_Archived: Date,
-            thread_Attachments: Array,
-            thread_PostType: String,
-            thread_Closed: Boolean,
-            thread_DateClosed: Date
-        },
-        {
-            collection: 'Threads'
-        }
-    );
-
     var threadCollec = mongoose.model('Threads', ThreadSchema);
     var json = "";
     threadCollec.find({}, function (err, Threads) {
@@ -134,32 +125,11 @@ reporting.getThreads = new function()
     });
 };
 
-reporting.getThreadsBy = new function(course)
+reporting.getThreadsBy =  function(course)
 {
-    var ThreadSchema = new mongoose.Schema
-    (
-        {
-            thread_DateCreated: Date,
-            thread_Name: String,
-            thread_PostContent: Array,
-            thread_CreatorID: String,
-            thread_SpaceID: String,
-            thread_StatusID: Array,
-            thread_Parent: String,
-            thread_Archived: Date,
-            thread_Attachments: Array,
-            thread_PostType: String,
-            thread_Closed: Boolean,
-            thread_DateClosed: Date
-        },
-        {
-            collection: 'Threads'
-        }
-    );
-
     var threadCollec = mongoose.model('Threads', ThreadSchema);
 
-    var subject = course = req.query.text;
+    var subject = course; //= req.query.text;
     var json = "";
     threadCollec.find({'thread_SpaceID': subject}, function (err, Threads) {
         json = "[";
@@ -175,7 +145,7 @@ reporting.getThreadsBy = new function(course)
     });
 };
 
-reporting.downloadCSV = new function(fileName, inJson, fields)//Uses json2csv and save the file on the HDD
+reporting.downloadCSV = function(fileName, inJson, fields)//Uses json2csv and save the file on the HDD
 {
     var json2csv = require('json2csv');
     var parsedJSON = JSON.parse(inJson);
