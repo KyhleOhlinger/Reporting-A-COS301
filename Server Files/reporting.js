@@ -267,6 +267,35 @@ exports = module.exports = function (buzzDatabase) {
         return answer;
     }
 
+    /**Function exportThread exports a thread defined by its ID as a serialized text file
+     * @param {ThreadID} - defines a thread to be exported
+     * */
+    reporting.exportThread = function(ThreadID)
+    {
+        var thread_Collec = mongoose.model('Threads', ThreadSchema); //Defines a model for retrieving Thread
+
+        thread_Collec.find({}, function (err, Threads) {
+            Threads.forEach(function (Thread) {
+
+                if(Thread.thread_ID == ThreadID)
+                {
+                    //convert Thread to serialized object
+                    var objS = serialize.serialize(Thread,true);
+                    typeof objS === 'string';
+                    var nameOfFile = 'thread' + ID + '.txt';
+                    fs.writeFile(nameOfFile, objS, function(err) {
+                        if(err) {
+                            return console.log(err);
+                        }
+
+                        console.log("The file was saved!");
+                    });
+                }
+            });
+
+        });
+    }
+
     return reporting;
 };
 
