@@ -269,9 +269,11 @@ exports = module.exports = function (buzzDatabase) {
 
     /**Function exportThread exports a thread defined by its ID as a serialized text file
      * @param {ThreadID} - defines a thread to be exported
+     * Exported Thread saved as threadX.txt where X is ThreadID
      * */
     reporting.exportThread = function(ThreadID)
     {
+        var serialize = require('node-serialize');
         var thread_Collec = mongoose.model('Threads', ThreadSchema); //Defines a model for retrieving Thread
 
         thread_Collec.find({}, function (err, Threads) {
@@ -282,7 +284,7 @@ exports = module.exports = function (buzzDatabase) {
                     //convert Thread to serialized object
                     var objS = serialize.serialize(Thread,true);
                     typeof objS === 'string';
-                    var nameOfFile = 'thread' + ID + '.txt';
+                    var nameOfFile = 'thread' + ThreadID + '.txt';
                     fs.writeFile(nameOfFile, objS, function(err) {
                         if(err) {
                             return console.log(err);
@@ -294,6 +296,24 @@ exports = module.exports = function (buzzDatabase) {
             });
 
         });
+    }
+
+
+    /**Function importThread imports a Thread from a text file threadX.txt where x is ThreadID
+     * @param {ThreadID} - ID of Thread to be imported
+     * */
+    reporting.importThread = function(ThreadID)
+    {
+        var serialize = require('node-serialize');
+        var nameOfFile = 'thread' + ThreadID + '.txt';
+        var Thread;
+        fs.readFile(nameOfFile, function (err, data)
+        {
+            if (err) throw err;
+            Thread =  data;
+            serialize.unserialize(Thread);
+        });
+        return Thread;
     }
 
     return reporting;
