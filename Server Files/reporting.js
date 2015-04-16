@@ -6,61 +6,59 @@
 //var json2csv = require('json2csv');
 var fs = require('fs');
 
-
-//schemas
-var ThreadSchema = new mongoose.Schema
-(
-    {
-        thread_ID: String,
-        thread_DateCreated: Date,
-        thread_Name: String,
-        thread_PostContent: Array,
-        thread_CreatorID: String,
-        thread_SpaceID: String,
-        thread_StatusID: Array,
-        thread_Parent: String,
-        thread_Archived: Date,
-        thread_Attachments: Array,
-        thread_PostType: String,
-        thread_Closed: Boolean,
-        thread_DateClosed: Date
-    },
-    {
-        collection: 'Threads'
-    }
-);
-
-var LecturerSchema = mongoose.Schema({
-    lecturer_Name: String,
-    lecturer_Surname: String,
-    lecturer_Phone: String,
-    lecturer_Email: String,
-    lecturer_Archived: Boolean
-}, {
-    collection: "Lecturers"
-});
-
-var StudentSchema = new mongoose.Schema
-( //Defines a schema for retrieving collections
-    {
-        std_StudentNumber: String,
-        std_Name: String,
-        std_Surname: String,
-        std_PhoneNumber: String,
-        std_Email: String,
-        std_Mark: String
-    },
-    {
-        collection: 'Students'
-    }
-);
-
 exports = module.exports = function (buzzDatabase) {
     var mongoose = buzzDatabase.mongoose;
     var db = buzzDatabase.db;
 
     var reporting = {};
 
+    //schemas
+    var ThreadSchema = new mongoose.Schema
+    (
+        {
+            thread_ID: String,
+            thread_DateCreated: Date,
+            thread_Name: String,
+            thread_PostContent: Array,
+            thread_CreatorID: String,
+            thread_SpaceID: String,
+            thread_StatusID: Array,
+            thread_Parent: String,
+            thread_Archived: Date,
+            thread_Attachments: Array,
+            thread_PostType: String,
+            thread_Closed: Boolean,
+            thread_DateClosed: Date
+        },
+        {
+            collection: 'Threads'
+        }
+    );
+
+    var LecturerSchema = mongoose.Schema({
+        lecturer_Name: String,
+        lecturer_Surname: String,
+        lecturer_Phone: String,
+        lecturer_Email: String,
+        lecturer_Archived: Boolean
+    }, {
+        collection: "Lecturers"
+    });
+
+    var StudentSchema = new mongoose.Schema
+    ( //Defines a schema for retrieving collections
+        {
+            std_StudentNumber: String,
+            std_Name: String,
+            std_Surname: String,
+            std_PhoneNumber: String,
+            std_Email: String,
+            std_Mark: String
+        },
+        {
+            collection: 'Students'
+        }
+    );
 
     /* getResponse(response)
      *  takes response given by user and mediates the correct function calls.
