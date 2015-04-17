@@ -265,6 +265,80 @@ exports = module.exports = function (buzzDatabase) {
         return answer;
     }
 
+    /**
+     * Function that performs a specific action on a set of threads
+     * @param {array} posts - An array with threads as elements, the action should be performed on this set
+     * @param {array} apps - An array with appraisals as elements, the action should be performed on this set
+     * @param {array} apps - An array with profile as elements, the action should be performed on this set
+     * @param {string} action - A keyword to describe the action to perform on the set:
+     * "Num" - calculates the number of appraisals in the set
+     * "Min" - the minimum appraisal ordinal value
+     * "Max" - the maximum appraisal ordinal value
+     * "Avg" - the average appraisal ordinal value
+     * "Sum" - the sum of appraisal ordinal values
+     * @returns {JSON} - The answer that was calculated according to the action keyword together with member-appraisals-posts entries
+     * */
+    reporting.getThreadAppraisal = function(posts, apps, owners, action) {
+        var entries = [];
+
+        var sum = 0, average, max =0, min=10;num=0;
+        for (i = 0; i < owners.length; i++) {
+            for (k = 0; k < apps.length; k++) {
+                if (owners[i]._id.toString == apps[k].profileID.toString) {
+                    for (j = 0; j < posts.length; j++) {
+                        if (apps[k].profileID.toString == posts[j]._id.toString) {
+                            var ov = Number(apps[k].ordinal_value);
+                            sum += ov;
+                            if (ov> max) {
+                                max = ov;
+                            }
+                            if (ov < min) {
+                                min = ov;
+                            }
+
+                            var entry = {
+                                "post_Datails": posts[j].toString(),
+                                "owner_ID": owners[i]._id,
+                                "appraisal_ID": apps[k]._id,
+                                "ordinal_value":ov
+                            };
+
+                            entries[num] = entry;
+                            num++;
+
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        if(action == "Sum")
+        {
+            answer = sum;
+        }
+        else if(action == "Avg")
+        {
+            answer = sum / num
+        }
+        else if(action == "Max")
+        {
+            answer = max;
+        }
+        else if(action == "Min")
+        {
+            answer = min;
+        }
+        else if(action == "Num")
+        {
+            answer = num;
+        }
+        var value = {
+            "entries": entries,
+            "action_value": answer
+        }
+        return value;
+    }
     /**Function exportThread exports a thread defined by its ID as a serialized text file
      * @param {ThreadID} - defines a thread to be exported
      * Exported Thread saved as threadX.txt where X is ThreadID
